@@ -54,4 +54,5 @@ module.exports = {
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})],
   },
+  devtool: 'eval-source-map',
 };
