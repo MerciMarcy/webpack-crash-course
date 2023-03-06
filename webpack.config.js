@@ -15,6 +15,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre', // 他のローダーより早く実行される
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+      },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
