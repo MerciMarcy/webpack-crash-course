@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 const outputPath = path.resolve(__dirname, 'dist');
 // console.log({outputPath});
@@ -12,12 +13,19 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],   // 後ろから順に実行
+        use: ['style-loader', 'css-loader', 'sass-loader'], // 後ろから順に実行
       },
       {
         test: /\.(jpe?g|png|gif|svg|ico)$/i,
@@ -27,9 +35,19 @@ module.exports = {
           name: './images/[name].[ext]',
         },
       },
+      {
+        test: /\.html$/,
+        loader: "html-loader"
+      }
     ],
   },
   devServer: {
     contentBase: outputPath,
   },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './src/index.html',
+      filename: './index.html'
+    })
+  ]
 };
