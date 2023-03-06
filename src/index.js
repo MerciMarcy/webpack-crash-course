@@ -1,8 +1,9 @@
 import _ from 'lodash';
-import style from './style.css';
+import './style.css';
+import './style.scss';
 import logo from './logo.png';
 
-console.log(style.toString());
+// console.log(style.toString());
 
 function component() {
   const element = document.createElement('div');
