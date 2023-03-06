@@ -1,14 +1,7 @@
 import _ from 'lodash';
-// import { NAME, Square } from './utilities';
-// import * as utilities from './utilities';
-import { NAME as NAME_OF_MARCY } from './utilities';
-import Lion from './utilities';
+import style from './style.css';
 
-// console.log(Square(3));
-// console.log(NAME);
-// console.log(utilities.NAME);
-console.log(NAME_OF_MARCY);
-console.log(Lion.say());
+console.log(style.toString());
 
 function component() {
   const element = document.createElement('div');
@@ -18,3 +11,4 @@ function component() {
 }
 
 document.body.appendChild(component());
+document.body.classList.add('haikei');
